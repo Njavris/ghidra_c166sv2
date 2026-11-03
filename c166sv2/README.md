@@ -35,7 +35,11 @@ need `C166:LE:16:default` or `C166:CS:LE:16:default`.
 4. **Analyzer support.**  `C166AddressAnalyzer` now registers
    `Infineon XC164CS` so DPP/EXTP/EXTS constant propagation and decompiler
    references work with the new language.
-5. **MT05.2 scripts.**  `CreateMT05Memory`, known-function seeding, far-call
+5. **Upstream SLEIGH sync.**  The fork includes the newer upstream
+   `JMPA`/`CALLA` reserved-nibble handling and the register-based
+   `EXTP`/`EXTS` context (`ExtpValue`/`ExtsValue`) instead of the older
+   ExtpReg/ExtsReg representation.
+6. **MT05.2 scripts.**  `CreateMT05Memory`, known-function seeding, far-call
    table discovery and full-listing export scripts are included.
 
 ## Build
@@ -112,9 +116,12 @@ Known-good listing examples:
 | `0xC003B0` | `857A` | `co_mac_unknown 0x7a` | undefined / gap |
 | `0xC003B2` | `8585` | `co_mac_unknown 0x85` | undefined / gap |
 
-Across 8,853 addresses common with the previous whole-image listing, all 103
-differences were operand text only; byte lengths and mnemonics were identical.
-The differences are the expected EXTR/ESFR corrections.
+In the pre-JMPA-sync comparison, 8,853 addresses were common with the previous
+whole-image listing and 103 rows differed in operand text only; byte lengths
+and mnemonics were identical.  Those differences are the expected EXTR/ESFR
+corrections.  The JMPA/CALLA sync additionally restores 133 instructions that
+the older SLEIGH skipped; regenerate the comparison with the scripts in this
+directory for the final post-sync count.
 
 ## Limitations
 

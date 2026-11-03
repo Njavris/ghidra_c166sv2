@@ -92,7 +92,7 @@ not known and are not claimed.
 
 ## 4. Comparison with the previous whole-image listing
 
-Comparing the new seeded listing to
+A pre-JMPA-sync run compared the new seeded listing to
 `artifacts/ghidra-full/disassembly.txt` on 8,853 common addresses:
 
 * 103 differing rows
@@ -100,11 +100,13 @@ Comparing the new seeded listing to
 * 0 instruction-length changes
 * 0 mnemonic changes
 
-The differences are the corrected EXTR/ESFR operands listed above.  The new
-run did not attempt to reproduce the full 43,001-instruction artifact, because
-that artifact was generated with a multi-generation gap-recovery workflow.
-The extension can be used to rerun that workflow without modifying the
-existing artifacts.
+Those differences are the corrected EXTR/ESFR operands listed above.  The run
+also showed 133 old-only `JMPA`/`CALLA` rows because it used the older SLEIGH
+copy that still required a zero reserved nibble.  The fork now includes the
+upstream `JMPA`/`CALLA` encoding fix, so a post-sync listing restores those
+instructions.  The final post-sync comparison should be regenerated with the
+included scripts; the pre-sync numbers above are retained only as the
+EXTR/ESFR delta measurement.
 
 ## 5. Decompiler
 

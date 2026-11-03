@@ -7,7 +7,7 @@ import ghidra.program.model.listing.Instruction;
 public class DumpRange extends GhidraScript {
     @Override
     public void run() throws Exception {
-        long[] starts = new long[]{0xC00000L, 0xC00010L};
+        long[] starts = new long[]{0xC00000L, 0xC00010L, 0xC00020L};
         for (long start : starts) {
             Address a = toAddr(start);
             disassemble(a);

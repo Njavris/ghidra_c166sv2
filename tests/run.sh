@@ -23,7 +23,9 @@ for expected in \
   "C0000A push 0xfe08" \
   "C00012 co_mac_unknown 0x7a" \
   "C00014 co_mac_unknown 0x85" \
-  "C00016 mov r4,r1"; do
+  "C00016 mov r4,r1" \
+  "C00020 jmpa cc_NE,0xc002d6" \
+  "C00024 jmps 0xc10000"; do
   if ! grep -Fq "$expected" "$TMP/log"; then
     echo "FAIL: expected: $expected" >&2
     grep "DumpRange.java>" "$TMP/log" >&2 || true
