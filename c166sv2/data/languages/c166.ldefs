@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- See Relax specification: Ghidra/Framework/SoftwareModeling/data/languages/language_definitions.rxg -->
+
+<language_definitions>
+   <language processor="Infineon XC164CS"
+            endian="little"
+            size="16"
+            variant="XC164CS"
+            version="1.0"
+            slafile="c166.sla"
+            processorspec="xc164cs.pspec"
+            manualindexfile="../manuals/C166.idx"
+            id="C166SV2:LE:16:xc164cs">
+    <description>Infineon XC164CS C166SV2</description>
+    <compiler name="tasking" spec="c166.cspec" id="tasking"/>
+    <compiler name="keil" spec="c166.cspec" id="keil"/>
+  </language>
+</language_definitions>

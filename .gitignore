@@ -1,0 +1,13 @@
+# Build output
+c166sv2/build/
+c166sv2/data/languages/*.sla
+*.zip
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Editor / OS
+.DS_Store
+*.swp
